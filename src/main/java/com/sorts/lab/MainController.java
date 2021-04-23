@@ -18,24 +18,77 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/insertion")
-    public String Insertion(@RequestParam(value = "length", required = false, defaultValue = "8") int length, Model model) {
-        long startTime = System.nanoTime();
-        ArrayList<Integer> array = new ArrayList<Integer>();
-        for (int i = 0; i < length; i++)
+    @GetMapping("/sort")
+    public String multiSort(@RequestParam(value = "sortType", required = false) String sortType,
+                            @RequestParam(value = "dataType", required = false) String dataType, Model model){
+
+        System.out.println(String.format("sortType %s, dataType %s", sortType, dataType));
+
+        if (sortType != null && dataType != null)
         {
-            array.add((int) (Math.random() * 100 + 1));
+            Sort So;
+            if (dataType.equals("String"))
+            {
+                So = new Sort<Integer>();
+            }
+            else if (dataType.equals("Jewelry"))
+            {
+                So = new Sort<String>();
+            }
+            else
+            {
+                So = new Sort<Sort.Jewelry>();
+                dataType = "Integer";
+            }
+
+            Comparable[] Objs = new Comparable[10];
+            for (int I = 0; I < Objs.length; I++)
+            {
+                if (dataType.equals("String"))
+                {
+                    Objs[I] = new String(getRandomWord());
+                }
+                else if(dataType.equals("Jewelry"))
+                {
+                    Objs[I] = new Sort.Jewelry((int)(Math.random()*100000));
+                }
+                else if (dataType.equals("Integer"))
+                {
+                    Objs[I] = new Integer((int)(Math.random()*100));
+                }
+            }
+
+            Object[] sortedObjects = new Object[Objs.length];
+            if (sortType.equals("Bubble"))
+            {
+                sortedObjects = So.BubbleSort(Objs);
+            }
+            else if(sortType.equals("Selection"))
+            {
+                sortedObjects = So.SelectionSort(Objs);
+            }
+            else
+            {
+                sortedObjects = So.InsertionSort(Objs);
+            }
+
+            String[] Data = new String[sortedObjects.length];
+            for (int I = 0; I < Objs.length; I++)
+            {
+                Data[I] = sortedObjects[I].toString();
+            }
+
+            model.addAttribute("sortedData", Data);
         }
-        model.addAttribute("unsorted", "This is the Array that's not sorted, but is randomly generated: " + array.toString() + ".");
-        Integer[] arr = new Integer[length];
-        for (int j = 0; j < length; j++)
-        {
-            arr[j] = array.get(j);
-        }
-        Sort insertion = new Sort();
-        model.addAttribute("sorted", "This is the Array, which is now sorted: " + insertion.returnSort(arr) + ".");
-        long finalTime = System.nanoTime() - startTime;
-        model.addAttribute("time", "The time it took to execute the command was " + finalTime + " nanoseconds.");
-        return "insertion";
+
+        model.addAttribute("sortType", sortType);
+        model.addAttribute("dataType", dataType);
+        return "/sort";
+    }
+
+    private static String[] Words = new String[]
+            {"Magician", "Tennis", "Tesla", "Light", "Couch", "Physics", "Quandary", "Cart", "Phone", "Again", "Bowling", "Airport", "Movie", "Pencil", "Chocolate", "Milk", "Falcon", "Nighthawk", "Valley", "Zebra", "Console", "Java", "Skittles", "Python", "Amazon", "Google", "Speaker", "Table", "Mouse", "Scissors", "Highlighter", "Europe", "Monitor", "Restaurant", "Calculator", "Statistics", "Psychology", "Calculus", "Pill", "Globe", "Picture", "Wire", "Port", "Cruise", "Water", "Fire", "Ground", "Hormones", "Watch", "Computer Science", "Histogram", "Knob", "Roll", "Skateboard", "Garage", "Pie", "Blueberry", "Test", "Cadillac", "COVID", "Glue", "Shock", "Brain", "Muscle", "Pig", "Chicken", "Tone", "Earbuds", "Pancakes", "Imposter", "Salt", "Knife", "Weapon", "Widget", "Update", "Old", "Champagne", "Stride", "Proud", "Dance", "YouTube", "Jail", "Fort", "Toilet", "Flock", "Tuck", "Loss", "Soccer", "Eraser", "Schizophrenia", "Bicycle", "Australia", "Camera", "Button", "Bar", "Stool", "Fun", "Pretzel", "Biscuit", "Toe"};
+    private static String getRandomWord(){
+        return Words[(int)(Math.random()* Words.length)];
     }
 }

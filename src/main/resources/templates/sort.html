@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Lab | Aditya</title>
+</head>
+
+<body bgcolor="#20BCE3"></body>
+
+<body>
+<h1>AP CS A - Sort Lab</h1>
+<p>Here is my Sort Lab. The user will able to perform an Insertion Sort, a Bubble Sort, & a Selection Sort for Integers, Strings, & a POJO toString.</p>
+
+<div class="Data">
+    <table>
+        <tr>
+            <th></th>
+            <th th:text="${dataType}"></th>
+        </tr>
+
+        <tr th:each="s: ${sortedData}">
+            <td th:text="${sStat.index}" />
+            <td th:text="${s}" />
+        </tr>
+    </table>
+</div>
+
+<form th:action="@{/sort}">
+    <div>
+        <legend>Type of Sort:</legend>
+        <input type="radio" th:name="sortType" id="insertion" th:value="insertion" required>
+        <label for="insertion">Insertion</label>
+        <input type="radio" th:name="sortType" id="bubble" th:value="bubble">
+        <label for="bubble">Bubble</label>
+        <input type="radio" th:name="sortType" id="selection" th:value="selection">
+        <label for="selection">Selection</label>
+    </div>
+
+    <div>
+        <legend>Type of Data:</legend>
+        <input type="radio" th:name="dataType" id="integer" th:value="integer" required>
+        <label for="integer">Integer</label>
+        <input type="radio" th:name="dataType" id="string" th:value="string">
+        <label for="string">String</label>
+        <input type="radio" th:name="dataType" id="jewelry" th:value="jewelry">
+        <label for="jewelry">Jewelry</label>
+    </div>
+
+    <input type="submit">
+</form>
+
+<div th:switch="${sortType}" class="content">
+
+    <div th:case="'insertion'" class="description">
+        <h3>Insertion</h3>
+        <p>First, the Array is split into a "sorted" & a "unsorted" section. Second, as the "sort" loops through each element, the elements are moved from the unsorted section into the sorted section.</p>
+        <p>Time</p>
+        <p>Best Sort Scenario: O(n)</p>
+        <p>Worst Case Scenario: O(n²)</p>
+    </div>
+
+    <div th:case="'bubble'" class="description">
+        <h3>Bubble</h3>
+        <p>The Bubble Sort looks at the elements in the Array two at a time to determine whether swapping is necessary. If it is, a swap occurs. This pattern takes place until no two elements need to be swapped.</p>
+        <p><b>Time</b> </p>
+        <p>Best Case Scenario: O(n)</p>
+        <p>Worst Case Scenario: O(n²)</p>
+    </div>
+
+    <div th:case="'selection'" class="description">
+        <h3>Selection</h3>
+        <p>Like the Insertion Sort above, the Selection Sort split the Array into a "sorted" & a "unsorted" section. The "sort" looks through the whole Array for the smallest value, moves it to the front of the Array, & repeats the process. The process is finished when the Array is ordered from least to greatest.</p>
+        <p><b>Time complexity</b> </p>
+        <p>Best Case Scenario: <b>O(n)</b></p>
+        <p>Worst Case Scenario: <b>O(n²)</b></p>
+    </div>
+
+    <div th:case="*" class="description">
+        <p>Click here to start.</p>
+    </div>
+</div>
+
+</body>
+
+<script th:inline="javascript">
+    var sortType = /*[[${sortType}]]*/ ||= "Insertion";
+    var dataType = /*[[${dataType}]]*/ ||= "Integer";
+    sortType ||= "Insertion";
+    dataType ||= "Integer";
+
+    console.log(sortType, dataType);
+    document.getElementById(sortType).setAttribute("Checked","Checked")
+    document.getElementById(dataType).setAttribute("Checked","Checked")
+</script>
+
+<style>
+    .description{
+        margin-top: 50px;
+    }
+</style>
+
+</html>
