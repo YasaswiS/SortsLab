@@ -110,7 +110,7 @@ public class Sort<T>
         }
 
         @Override
-        public int CompareTo(Jewelry Je)
+        public int compareTo(Jewelry Je)
         {
             if(Je.getPrice() < this.getPrice())
             {
@@ -124,11 +124,6 @@ public class Sort<T>
             {
                 return 0;
             }
-        }
-
-        @Override
-        public int compareTo(Jewelry o) {
-            return 0;
         }
     }
 }
