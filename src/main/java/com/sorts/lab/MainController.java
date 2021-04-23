@@ -12,7 +12,8 @@ import org.springframework.ui.Model;
 
 @RequestMapping("")
 @Controller
-public class MainController {
+public class MainController
+{
     @GetMapping("/")
     public String Index() {
         return "index";
@@ -83,7 +84,7 @@ public class MainController {
 
         model.addAttribute("sortType", sortType);
         model.addAttribute("dataType", dataType);
-        return "/sort";
+        return "sort";
     }
 
     private static String[] Words = new String[]
