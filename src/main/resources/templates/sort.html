@@ -51,26 +51,26 @@
 
 <div th:switch="${sortType}" class="content">
 
-    <div th:case="'insertion'" class="description">
+    <div th:case="'Insertion'" class="description">
         <h3>Insertion</h3>
         <p>First, the Array is split into a "sorted" & a "unsorted" section. Second, as the "sort" loops through each element, the elements are moved from the unsorted section into the sorted section.</p>
-        <p>Time</p>
+        <p><b>Time</b></p>
         <p>Best Sort Scenario: O(n)</p>
         <p>Worst Case Scenario: O(n²)</p>
     </div>
 
-    <div th:case="'bubble'" class="description">
+    <div th:case="'Bubble'" class="description">
         <h3>Bubble</h3>
         <p>The Bubble Sort looks at the elements in the Array two at a time to determine whether swapping is necessary. If it is, a swap occurs. This pattern takes place until no two elements need to be swapped.</p>
-        <p><b>Time</b> </p>
+        <p><b>Time</b></p>
         <p>Best Case Scenario: O(n)</p>
         <p>Worst Case Scenario: O(n²)</p>
     </div>
 
-    <div th:case="'selection'" class="description">
+    <div th:case="'Selection'" class="description">
         <h3>Selection</h3>
         <p>Like the Insertion Sort above, the Selection Sort split the Array into a "sorted" & a "unsorted" section. The "sort" looks through the whole Array for the smallest value, moves it to the front of the Array, & repeats the process. The process is finished when the Array is ordered from least to greatest.</p>
-        <p><b>Time</b> </p>
+        <p><b>Time</b></p>
         <p>Best Case Scenario: <b>O(n)</b></p>
         <p>Worst Case Scenario: <b>O(n²)</b></p>
     </div>
