@@ -1,8 +1,6 @@
 package com.sorts.lab;
 
-import java.util.ArrayList;
-
-import Lab.Sort;
+import Lab.SortInsertion;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +12,7 @@ import org.springframework.ui.Model;
 @Controller
 public class MainController
 {
+    int integer = (int)Math.random()*10000;
     @GetMapping("/")
     public String Index() {
         return "index";
@@ -25,18 +24,18 @@ public class MainController
 
         if (sortType != null && dataType != null)
         {
-            Sort So;
+            SortInsertion So;
             if (dataType.equals("String"))
             {
-                So = new Sort<Integer>();
+                So = new SortInsertion<Integer>();
             }
             else if (dataType.equals("Car"))
             {
-                So = new Sort<String>();
+                So = new SortInsertion<String>();
             }
             else
             {
-                So = new Sort<Sort.Car>();
+                So = new SortInsertion<SortInsertion.Car>();
                 dataType = "Integer";
             }
 
@@ -49,11 +48,11 @@ public class MainController
                 }
                 else if(dataType.equals("Car"))
                 {
-                    Objs[I] = new Sort.Car((int)(Math.random()*100000));
+                    Objs[I] = new SortInsertion.Car(integer);
                 }
                 else if (dataType.equals("Integer"))
                 {
-                    Objs[I] = new Integer((int)(Math.random()*100));
+                    Objs[I] = new Integer(integer);
                 }
             }
 

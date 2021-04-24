@@ -2,7 +2,7 @@ package Lab;
 
 import java.util.Arrays;
 
-public class Sort<T>
+public class SortInsertion<T>
 {
 
     public <A extends Comparable<A>> A[] InsertionSort(A[] Arr)
