@@ -28,21 +28,21 @@
 <form th:action="@{/sort}">
     <div>
         <legend>Type of Sort:</legend>
-        <input type="radio" th:name="sortType" id="insertion" th:value="insertion" required>
+        <input type="radio" th:name="sortType" id="insertion" th:value="Insertion" required>
         <label for="insertion">Insertion</label>
-        <input type="radio" th:name="sortType" id="bubble" th:value="bubble">
+        <input type="radio" th:name="sortType" id="bubble" th:value="Bubble">
         <label for="bubble">Bubble</label>
-        <input type="radio" th:name="sortType" id="selection" th:value="selection">
+        <input type="radio" th:name="sortType" id="selection" th:value="Selection">
         <label for="selection">Selection</label>
     </div>
 
     <div>
         <legend>Type of Data:</legend>
-        <input type="radio" th:name="dataType" id="integer" th:value="integer" required>
+        <input type="radio" th:name="dataType" id="integer" th:value="Integer" required>
         <label for="integer">Integer</label>
-        <input type="radio" th:name="dataType" id="string" th:value="string">
+        <input type="radio" th:name="dataType" id="string" th:value="String">
         <label for="string">String</label>
-        <input type="radio" th:name="dataType" id="jewelry" th:value="jewelry">
+        <input type="radio" th:name="dataType" id="jewelry" th:value="Jewelry">
         <label for="jewelry">Jewelry</label>
     </div>
 
@@ -70,13 +70,13 @@
     <div th:case="'selection'" class="description">
         <h3>Selection</h3>
         <p>Like the Insertion Sort above, the Selection Sort split the Array into a "sorted" & a "unsorted" section. The "sort" looks through the whole Array for the smallest value, moves it to the front of the Array, & repeats the process. The process is finished when the Array is ordered from least to greatest.</p>
-        <p><b>Time complexity</b> </p>
+        <p><b>Time</b> </p>
         <p>Best Case Scenario: <b>O(n)</b></p>
         <p>Worst Case Scenario: <b>O(n²)</b></p>
     </div>
 
     <div th:case="*" class="description">
-        <p>Click here to start.</p>
+        <p>Click on "Submit" to start.</p>
     </div>
 </div>
 
