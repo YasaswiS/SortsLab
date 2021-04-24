@@ -14,7 +14,7 @@
 <div class="Data">
     <table>
         <tr>
-            <th></th>
+            <th>Index No.</th>
             <th th:text="${dataType}"></th>
         </tr>
 
@@ -76,15 +76,15 @@
     </div>
 
     <div th:case="*" class="description">
-        <p>Click on "Submit" to start.</p>
+        <p>Click on the buttons. Click "Submit" to see the result..</p>
     </div>
 </div>
 
 </body>
 
 <script th:inline="javascript">
-    var sortType = /*[[${sortType}]]*/ ||= "Insertion";
-    var dataType = /*[[${dataType}]]*/ ||= "Integer";
+    var sortType = ||= "Insertion";
+    var dataType = ||= "Integer";
     sortType ||= "Insertion";
     dataType ||= "Integer";
 
