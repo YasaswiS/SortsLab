@@ -5,12 +5,10 @@
     <title>Sort Lab | Aditya</title>
 </head>
 
-<body bgcolor="#20BCE3"></body>
-
 <body>
-<h1>AP CS A - Sort Lab</h1>
-<p>Here is my Sort Lab. The user will able to perform an Insertion Sort for Integers, Strings, & a POJO toString.</p>
-
+<h1>Sort Lab</h1>
+<p>Here is the Sort Lab. The user will able to perform an Insertion Sort for Integers, Strings, & a POJO toString.</p>
+<body bgcolor="#e3c620"></body>
 <div class="Data">
     <table>
         <tr>
@@ -38,8 +36,8 @@
         <label for="integer">Integer</label>
         <input type="radio" th:name="dataType" id="string" th:value="String">
         <label for="string">String</label>
-        <input type="radio" th:name="dataType" id="jewelry" th:value="Jewelry">
-        <label for="jewelry">Jewelry</label>
+        <input type="radio" th:name="dataType" id="car" th:value="Car">
+        <label for="car">Car</label>
     </div>
 
     <input type="submit">
@@ -49,7 +47,7 @@
 
     <div th:case="'Insertion'" class="description">
         <h3>Insertion</h3>
-        <p>First, the Array is split into a "sorted" & a "unsorted" section. Second, as the "sort" loops through each element, the elements are moved from the unsorted section into the sorted section.</p>
+        <p>Explination: The Array is split into 2 parts, and sorted separately. Then, the sorted list is combined together. </p>
     </div>
 
     <div th:case="*" class="description">

@@ -30,13 +30,13 @@ public class MainController
             {
                 So = new Sort<Integer>();
             }
-            else if (dataType.equals("Jewelry"))
+            else if (dataType.equals("Car"))
             {
                 So = new Sort<String>();
             }
             else
             {
-                So = new Sort<Sort.Jewelry>();
+                So = new Sort<Sort.Car>();
                 dataType = "Integer";
             }
 
@@ -47,9 +47,9 @@ public class MainController
                 {
                     Objs[I] = new String(getRandomWord());
                 }
-                else if(dataType.equals("Jewelry"))
+                else if(dataType.equals("Car"))
                 {
-                    Objs[I] = new Sort.Jewelry((int)(Math.random()*100000));
+                    Objs[I] = new Sort.Car((int)(Math.random()*100000));
                 }
                 else if (dataType.equals("Integer"))
                 {

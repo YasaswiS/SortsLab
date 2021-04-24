@@ -24,9 +24,9 @@ public class Sort<T>
         return Arr;
     }
 
-    public static class Jewelry implements Comparable<Jewelry> {
+    public static class Car implements Comparable<Car> {
         private int Price;
-        public Jewelry(int pc)
+        public Car(int pc)
         {
             Price = pc;
         }
@@ -39,14 +39,14 @@ public class Sort<T>
         @Override
         public String toString()
         {
-            return "Jewelry: " +
-                    "Price = $" + Price +
+            return "Car: " +
+                    "Price is $" + Price +
                     '.';
         }
 
 
         @Override
-        public int compareTo(Jewelry Je)
+        public int compareTo(Car Je)
         {
             if(Je.getPrice() < this.getPrice())
             {
