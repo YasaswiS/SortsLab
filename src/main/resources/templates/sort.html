@@ -9,7 +9,7 @@
 
 <body>
 <h1>AP CS A - Sort Lab</h1>
-<p>Here is my Sort Lab. The user will able to perform an Insertion Sort, a Bubble Sort, & a Selection Sort for Integers, Strings, & a POJO toString.</p>
+<p>Here is my Sort Lab. The user will able to perform an Insertion Sort for Integers, Strings, & a POJO toString.</p>
 
 <div class="Data">
     <table>
@@ -30,10 +30,6 @@
         <legend>Type of Sort:</legend>
         <input type="radio" th:name="sortType" id="insertion" th:value="Insertion" required>
         <label for="insertion">Insertion</label>
-        <input type="radio" th:name="sortType" id="bubble" th:value="Bubble">
-        <label for="bubble">Bubble</label>
-        <input type="radio" th:name="sortType" id="selection" th:value="Selection">
-        <label for="selection">Selection</label>
     </div>
 
     <div>
@@ -54,25 +50,6 @@
     <div th:case="'Insertion'" class="description">
         <h3>Insertion</h3>
         <p>First, the Array is split into a "sorted" & a "unsorted" section. Second, as the "sort" loops through each element, the elements are moved from the unsorted section into the sorted section.</p>
-        <p><b>Time</b></p>
-        <p>Best Sort Scenario: O(n)</p>
-        <p>Worst Case Scenario: O(n²)</p>
-    </div>
-
-    <div th:case="'Bubble'" class="description">
-        <h3>Bubble</h3>
-        <p>The Bubble Sort looks at the elements in the Array two at a time to determine whether swapping is necessary. If it is, a swap occurs. This pattern takes place until no two elements need to be swapped.</p>
-        <p><b>Time</b></p>
-        <p>Best Case Scenario: O(n)</p>
-        <p>Worst Case Scenario: O(n²)</p>
-    </div>
-
-    <div th:case="'Selection'" class="description">
-        <h3>Selection</h3>
-        <p>Like the Insertion Sort above, the Selection Sort split the Array into a "sorted" & a "unsorted" section. The "sort" looks through the whole Array for the smallest value, moves it to the front of the Array, & repeats the process. The process is finished when the Array is ordered from least to greatest.</p>
-        <p><b>Time</b></p>
-        <p>Best Case Scenario: <b>O(n)</b></p>
-        <p>Worst Case Scenario: <b>O(n²)</b></p>
     </div>
 
     <div th:case="*" class="description">

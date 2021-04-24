@@ -23,8 +23,6 @@ public class MainController
     public String multiSort(@RequestParam(value = "sortType", required = false) String sortType,
                             @RequestParam(value = "dataType", required = false) String dataType, Model model){
 
-        System.out.println(String.format("sortType %s, dataType %s", sortType, dataType));
-
         if (sortType != null && dataType != null)
         {
             Sort So;
@@ -60,15 +58,8 @@ public class MainController
             }
 
             Object[] sortedObjects = new Object[Objs.length];
-            if (sortType.equals("Bubble"))
-            {
-                sortedObjects = So.BubbleSort(Objs);
-            }
-            else if(sortType.equals("Selection"))
-            {
-                sortedObjects = So.SelectionSort(Objs);
-            }
-            else
+
+            if(sortType.equals("Insertion"))
             {
                 sortedObjects = So.InsertionSort(Objs);
             }
@@ -88,7 +79,7 @@ public class MainController
     }
 
     private static String[] Words = new String[]
-            {"Magician", "Tennis", "Tesla", "Light", "Couch", "Physics", "Quandary", "Cart", "Phone", "Again", "Bowling", "Airport", "Movie", "Pencil", "Chocolate", "Milk", "Falcon", "Nighthawk", "Valley", "Zebra", "Console", "Java", "Skittles", "Python", "Amazon", "Google", "Speaker", "Table", "Mouse", "Scissors", "Highlighter", "Europe", "Monitor", "Restaurant", "Calculator", "Statistics", "Psychology", "Calculus", "Pill", "Globe", "Picture", "Wire", "Port", "Cruise", "Water", "Fire", "Ground", "Hormones", "Watch", "Computer Science", "Histogram", "Knob", "Roll", "Skateboard", "Garage", "Pie", "Blueberry", "Test", "Cadillac", "COVID", "Glue", "Shock", "Brain", "Muscle", "Pig", "Chicken", "Tone", "Earbuds", "Pancakes", "Imposter", "Salt", "Knife", "Weapon", "Widget", "Update", "Old", "Champagne", "Stride", "Proud", "Dance", "YouTube", "Jail", "Fort", "Toilet", "Flock", "Tuck", "Loss", "Soccer", "Eraser", "Schizophrenia", "Bicycle", "Australia", "Camera", "Button", "Bar", "Stool", "Fun", "Pretzel", "Biscuit", "Toe"};
+            {"stay", "profound", "menu", "insist", "general", "isolation", "buffet", "temptation", "highway", "vegetation", "pavement", "budget", "swim, bottle", "stop", "entertainment", "parameter", "popular", "stab", "discipline"};
     private static String getRandomWord(){
         return Words[(int)(Math.random()* Words.length)];
     }

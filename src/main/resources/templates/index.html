@@ -1,18 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page of Insertion Sorts Lab</title>
+    <title>Sort Lab | Aditya</title>
 </head>
 
 <body bgcolor="#20BCE3"></body>
 
 <body>
-<h1>AP Computer Science A - Labs</h1>
-<ul>
-    <li><a href="https://spring-boot-calculator.herokuapp.com/calculator">Recursion Lab</a></li>
-    <li><a href="https://inheritance-lab.herokuapp.com/inheritance">Inheritance Lab</a></li>
-    <li><a href="https://insertion-sorts-lab.herokuapp.com/sort">Sorts Lab</a></li>
-</ul>
+<h1>AP CS A - Sort Lab</h1>
+<p>Here is my Sort Lab. The user will able to perform an Insertion Sort, a Bubble Sort, & a Selection Sort for Integers, Strings, & a POJO toString.</p>
+
+<div class="Data">
+    <table>
+        <tr>
+            <th>Index No.</th>
+            <th th:text="${dataType}"></th>
+        </tr>
+
+        <tr th:each="s: ${sortedData}">
+            <td th:text="${sStat.index}" />
+            <td th:text="${s}" />
+        </tr>
+    </table>
+</div>
+
+<form th:action="@{/sort}">
+    <div>
+        <legend>Type of Sort:</legend>
+        <input type="radio" th:name="sortType" id="insertion" th:value="Insertion" required>
+        <label for="insertion">Insertion</label>
+    </div>
+
+    <div>
+        <legend>Type of Data:</legend>
+        <input type="radio" th:name="dataType" id="integer" th:value="Integer" required>
+        <label for="integer">Integer</label>
+        <input type="radio" th:name="dataType" id="string" th:value="String">
+        <label for="string">String</label>
+        <input type="radio" th:name="dataType" id="jewelry" th:value="Jewelry">
+        <label for="jewelry">Jewelry</label>
+    </div>
+
+    <input type="submit">
+</form>
+
+<div th:switch="${sortType}" class="content">
+
+    <div th:case="'Insertion'" class="description">
+        <h3>Insertion</h3>
+        <p>First, the Array is split into a "sorted" & a "unsorted" section. Second, as the "sort" loops through each element, the elements are moved from the unsorted section into the sorted section.</p>
+    </div>
+
+    <div th:case="*" class="description">
+        <p>Click on the buttons. Click "Submit" to see the result..</p>
+    </div>
+</div>
+
 </body>
+
+<script th:inline="javascript">
+    var sortType = ||= "Insertion";
+    var dataType = ||= "Integer";
+    sortType ||= "Insertion";
+    dataType ||= "Integer";
+
+    console.log(sortType, dataType);
+    document.getElementById(sortType).setAttribute("Checked","Checked")
+    document.getElementById(dataType).setAttribute("Checked","Checked")
+</script>
+
+<style>
+    .description{
+        margin-top: 50px;
+    }
+</style>
+
 </html>
