@@ -5,23 +5,23 @@ import java.util.Arrays;
 public class SortInsertion<T>
 {
 
-    public <A extends Comparable<A>> A[] InsertionSort(A[] Arr)
+    public <A extends Comparable<A>> A[] InsertionSort(A[] arr)
     {
-        for (int I = 1; I < Arr.length; I++)
+        for (int i = 1; i < arr.length; i++)
         {
-            int I1 = I;
-            int I2 = I - 1;
-            while (I2 >= 0 && Arr[I1].compareTo(Arr[I2]) < 0)
+            int i1 = i;
+            int i2 = i - 1;
+            while (i2 >= 0 && arr[i1].compareTo(arr[i2]) < 0)
             {
-                A Value1 = Arr[I1];
-                Arr[I1] = Arr[I2];
-                Arr[I2] = Value1;
+                A Value1 = arr[i1];
+                Arr[i1] = arr[i2];
+                Arr[i2] = Value1;
 
-                I1 -= 1;
-                I2 -= 1;
+                i1 -= 1;
+                i2 -= 1;
             }
         }
-        return Arr;
+        return arr;
     }
 
     public static class Car implements Comparable<Car> {
