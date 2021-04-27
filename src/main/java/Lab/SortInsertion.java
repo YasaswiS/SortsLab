@@ -14,8 +14,8 @@ public class SortInsertion<T>
             while (i2 >= 0 && arr[i1].compareTo(arr[i2]) < 0)
             {
                 A Value1 = arr[i1];
-                Arr[i1] = arr[i2];
-                Arr[i2] = Value1;
+                arr[i1] = arr[i2];
+                arr[i2] = Value1;
 
                 i1 -= 1;
                 i2 -= 1;
